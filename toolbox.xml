@@ -1,0 +1,6 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="DS18B20" colour="#cdbf88" icon="water">
+    <block type="yolobit_db18s20_setup"/>
+    <block type="yolobit_db18s20_read_temp"/>
+  </category>
+</xml>
