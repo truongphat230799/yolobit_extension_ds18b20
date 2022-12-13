@@ -122,11 +122,10 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
                 ]
             ]
         }],
-        "previousStatement": null,
-        "nextStatement": null,
+        "output": null,
         "colour": "#cdbf88",
         "tooltip": "",
-        "helpUrl": ""      
+        "helpUrl": ""     
       });
     }
   };
