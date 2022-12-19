@@ -105,7 +105,7 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
   Blockly.Blocks['yolobit_ds18b20_read_temp'] = {
     init: function() {
       this.jsonInit({      
-        "type": "yolobit_db18s20_setup",
+        "type": "yolobit_ds18b20_read_temp",
         "message0": "giá trị %1 từ cảm biến",
         "args0": [
             {
