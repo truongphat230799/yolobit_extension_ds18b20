@@ -3,4 +3,4 @@
     <block type="yolobit_ds18b20_setup"/>
     <block type="yolobit_ds18b20_read_temp"/>
   </category>
-</xmlw
+</xml>
