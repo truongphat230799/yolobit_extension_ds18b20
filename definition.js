@@ -132,10 +132,10 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
 
   Blockly.Python['yolobit_ds18b20_read_temp'] = function(block) {
     var value = block.getFieldValue('value');
-    var code = "";
+    var code = '';
     if (value == "℃") 
         code = 'ds.read_temp_c()';
-    if (value == "°F")
+    else
         code = 'ds.read_temp_f()';
     return [code, Blockly.Python.ORDER_NONE];
   };
