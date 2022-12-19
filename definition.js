@@ -97,7 +97,7 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     Blockly.Python.definitions_['import_ds18x20'] = 'import ds18x20';
     var dropdown_pin = block.getFieldValue('pin');
     // TODO: Assemble Python into code variable.
-    var code = 'ds = DS18X20(OneWire(' + dropdown_pin + ".pin))\n";
+    var code = 'ds = DS18X20(OneWire(' + dropdown_pin + '.pin))\n';
     return code;
   };
   
@@ -134,8 +134,8 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     var value = block.getFieldValue('value');
     var code = "";
     if (value == "℃") 
-        code = 'ds.read_temp()';
+        code = 'ds.read_temp_c()';
     if (value == "°F")
-        code = 'ds.c_to_f()';
+        code = 'ds.read_temp_f()';
     return [code, Blockly.Python.ORDER_NONE];
   };

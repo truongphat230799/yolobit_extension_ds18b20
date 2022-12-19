@@ -23,7 +23,7 @@ class TemperatureSensor:
         # save what should be the only address found
         self.addr = addrs.pop()
 
-    def read_temp(self, fahrenheit=True):
+    def read_temp_f(self, fahrenheit=True):
         """
         Reads temperature from a single DS18X20
         :param fahrenheit: Whether or not to return value in Fahrenheit
@@ -49,3 +49,17 @@ class TemperatureSensor:
         :rtype: float
         """
         return (c * 1.8) + 32
+
+    def read_temp_c(self):
+        """
+        Reads temperature from a single DS18X20
+        :param fahrenheit: Whether or not to return value in Fahrenheit
+        :type fahrenheit: bool
+        :return: Temperature
+        :rtype: float
+        """
+
+        self.ds.convert_temp()
+        time.sleep_ms(750)
+        temp = self.ds.read_temp(self.addr)
+        return temp
