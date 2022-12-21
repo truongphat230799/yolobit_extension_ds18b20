@@ -2,5 +2,6 @@
   <category name="DS18B20" colour="#cdbf88" icon="thermometer-quarter">
     <block type="yolobit_ds18b20_setup"/>
     <block type="yolobit_ds18b20_read_temp"/>
+    <block type="yolobit_ds18b20_update_temp"/>
   </category>
 </xml>

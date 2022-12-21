@@ -97,7 +97,7 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     Blockly.Python.definitions_['import_ds18x20'] = 'import ds18x20';
     var dropdown_pin = block.getFieldValue('pin');
     // TODO: Assemble Python into code variable.
-    var code = 'ds = DS18X20(OneWire(' + dropdown_pin + '.pin))\n';
+    var code = 'ds_sensor = ds18x20.DS18X20(onewire.OneWire(machine.Pin(' + dropdown_pin + '.pin)))\n' + 'roms = ds_sensor.scan()\n';
     return code;
   };
   
@@ -134,8 +134,27 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     var value = block.getFieldValue('value');
     var code = '';
     if (value == "℃") 
-        code = 'ds.read_temp_c()';
+        code = 'ds_sensor.read_temp(rom)';
     else
-        code = 'ds.read_temp_f()';
+        code = '(ds_sensor.read_temp(rom) * 1.8) + 32';
     return [code, Blockly.Python.ORDER_NONE];
+  };
+
+  Blockly.Blocks['yolobit_ds18b20_update_temp'] = {
+    init: function() {
+      this.jsonInit({      
+        "type": "yolobit_ds18b20_read_temp",
+        "message0": "cập nhật giá trị cảm biến",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": "#cdbf88",
+        "tooltip": "",
+        "helpUrl": ""    
+      });
+    }
+  };
+
+  Blockly.Python['yolobit_ds18b20_update_temp'] = function(block) {
+    var code = 'ds_sensor.convert_temp()\n' + 'time.sleep_ms(750)\n' + 'for rom in roms:\n\t';
+    return code;
   };
