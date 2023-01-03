@@ -133,7 +133,7 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
   Blockly.Python['yolobit_ds18b20_read_temp'] = function(block) {
     var value = block.getFieldValue('value');
     var code = '';
-    if (value == "℃") 
+    if (value == "Cencius") 
         code = 'temp';
     else
         code = '(temp * 1.8) +32';
