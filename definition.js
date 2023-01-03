@@ -106,7 +106,7 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     init: function() {
       this.jsonInit({      
         "type": "yolobit_ds18b20_read_temp",
-        "message0": "giá trị %1 từ cảm biến",
+        "message0": "giá trị %1",
         "args0": [
             {
               type: "field_dropdown",
@@ -134,9 +134,9 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
     var value = block.getFieldValue('value');
     var code = '';
     if (value == "℃") 
-        code = 'ds_sensor.read_temp(rom)';
+        code = 'temp';
     else
-        code = '(ds_sensor.read_temp(rom) * 1.8) + 32';
+        code = '(temp * 1.8) +32';
     return [code, Blockly.Python.ORDER_NONE];
   };
 
@@ -155,6 +155,6 @@ Blockly.Blocks['yolobit_ds18b20_setup'] = {
   };
 
   Blockly.Python['yolobit_ds18b20_update_temp'] = function(block) {
-    var code = 'ds_sensor.convert_temp()\n' + 'time.sleep_ms(750)\n' + 'for rom in roms:\n\t';
+    var code = 'ds_sensor.convert_temp()\n' + 'time.sleep_ms(750)\n' + 'for rom in roms:\n' + '\ttemp = ds_sensor.read_temp(rom)\n';
     return code;
   };
