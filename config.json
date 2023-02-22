@@ -1,5 +1,5 @@
 {
-    "name": "DB18S20",
+    "name": "DS18B20",
     "description": "Mục mở rộng của Yolo:Bit dùng cho module DB18S20",
     "libs": [
         "ds18b20.py"
